@@ -23,6 +23,12 @@
 	<script src="assets/js/html5shiv.js"></script>
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/build.json", {onProgress: UnityProgress});
+    </script>
 </head>
 
 <body class="home">
@@ -36,8 +42,8 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
-					<li class="active"><a href="#">Accueil</a></li>
-					<li ><a href="Demonstration.html">Démonstration</a></li>
+					<li class="active"><a href="index.html">Accueil</a></li>
+					<li class="active"><a href="Demonstration.html">Démonstration</a></li>
 					<li><a href="about.html">A propos de nous</a></li>
 					<li><a href="about.html">Aide</a></li>
                     <!--
@@ -55,34 +61,22 @@
 			</div><!--/.nav-collapse -->
 		</div>
 	</div> 
-	<!-- /.navbar -->
-
-	<!-- Header -->
-	<header id="head">
-		<div class="container">
-			<div class="row">
-				<h1 class="lead">Découvrez le musée virtuel!</h1>
-				<p><a class="btn btn-action btn-lg" role="button" href="Demonstration.html">Voir la démonstration</a></p>
-			</div>
-		</div>
-	</header>
-	<!-- /Header -->
-
-	<!-- Intro -->
-	<div class="container text-center">
-		<br> <br>
-		<h2 class="thin">The best place to tell people why they are here</h2>
-		<p class="text-muted">
-			The difference between involvement and commitment is like an eggs-and-ham breakfast:<br> 
-			the chicken was involved; the pig was committed.
-		</p>
-	</div>
-	<!-- /Intro-->
+	<!-- /.navbar -->                           
 		
 	<!-- container -->
 	<div class="container">
+		<div class="row">
+			<div class="webgl-content" style="position: relative;margin-top:430px">
+              <div id="gameContainer" style="width: 960px; height: 600px"></div>
+              <div class="footer">
+                <div class="webgl-logo"></div>
+                <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+                <div class="title">MBANv2</div>
+              </div>
+            </div>
+		</div> <!-- /row -->
 
-		...
+		
     </div>	
     <!-- /container -->
 	
