@@ -7,10 +7,14 @@
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Contact</h3>
 						<div class="widget-body">
-							<p>+234 23 9873237<br>
-								<a href="mailto:#">some.email@somewhere.com</a><br>
-								<br>
-								234 Hidden Pond Road, Ashland City, TN 37015
+							<p>
+								<a href="mailto:#">Email : bird-studies at loria.fr</a>
+                                <br>
+                                BIRD Team (LORIA Laboratory, University of Lorraine)
+                                <br>
+                                Campus Scientifique B.P.239
+                                <br>
+                                54506 Vandoeuvre-lès-Nancy, France
 							</p>	
 						</div>
 					</div>
