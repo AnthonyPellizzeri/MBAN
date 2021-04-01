@@ -87,13 +87,13 @@
                         window.location.href="index.php"; 
                                 },
                   error:function(){
-                      alert("notOk");
+                      alert("notOk2");
                   }   
                 }); 
               }
           },
           error:function(){
-              alert("notOk");
+              alert("notOk1");
           }   
         }); 
         }

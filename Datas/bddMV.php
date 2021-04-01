@@ -21,9 +21,9 @@
         case 'searchTab':
             $idArtwork = $_POST["idArtwork"];
             $idUser = $_POST["idUser"];
-            $query = "Select titleFR,Collaboration.idArtist_main,dateArtwork,heightArtwork,widthArtwork,Artwork.idArtwork FROM Artwork INNER JOIN Collaboration WHERE Artwork.idArtwork = Collaboration.idArtwork AND Artwork.idArtwork='".$idArtwork."';";
-            $queryLike = "SELECT appreciationLike FROM Appreciation WHERE idArtwork='".$idArtwork."' AND idVisitor = '".$idUser."' ;";
-            $queryComment = "SELECT appreciationCommentText FROM Appreciation WHERE idArtwork='".$idArtwork."' AND idVisitor = '".$idUser."' ;";
+            $query = "Select titleFR,mbanv2_Collaboration.idArtist_main,dateArtwork,heightArtwork,widthArtwork,mbanv2_Artwork.idArtwork FROM mbanv2_Artwork INNER JOIN mbanv2_Collaboration WHERE mbanv2_Artwork.idArtwork = mbanv2_Collaboration.idArtwork AND mbanv2_Artwork.idArtwork='".$idArtwork."';";
+            $queryLike = "SELECT appreciationLike FROM mbanv2_Appreciation WHERE idArtwork='".$idArtwork."' AND idVisitor = '".$idUser."' ;";
+            $queryComment = "SELECT appreciationCommentText FROM mbanv2_Appreciation WHERE idArtwork='".$idArtwork."' AND idVisitor = '".$idUser."' ;";
 
             $tab = mysqli_query($co,$query) or die("2: get tab query failed");
             
@@ -75,7 +75,7 @@
             
             //echo $roomId."-".$wallId."-".$posY."-".$posX;
             
-            $queryWall = "INSERT INTO Wall VALUES ('".$wallId."','".$roomId."',".$WallPosX.",".$WallPosY.",".$WallPosZ.");";
+            $queryWall = "INSERT INTO mbanv2_Wall VALUES ('".$wallId."','".$roomId."',".$WallPosX.",".$WallPosY.",".$WallPosZ.");";
             mysqli_query($co,$queryWall);
             
             
@@ -90,12 +90,12 @@
             $dateEnd = $_POST["dateEnd"];
             
             //echo $imageId."-".$height."-".$width."-".$paintingName;
-            $queryArtwork = "INSERT INTO Artwork VALUES ('".$imageId."',".$height.",".$width.",null,null,null,'".addslashes($paintingName)."',null,null,'".$dateArtwork."','".$dateBegin."','".$dateEnd."',null,null);";
+            $queryArtwork = "INSERT INTO mbanv2_Artwork VALUES ('".$imageId."',".$height.",".$width.",null,null,null,'".addslashes($paintingName)."',null,null,'".$dateArtwork."','".$dateBegin."','".$dateEnd."',null,null);";
             mysqli_query($co,$queryArtwork);
             
-            $queryArtist = "INSERT INTO Artist VALUES ('".$artist."',null,null,null,null,null,null,null);";
+            $queryArtist = "INSERT INTO mbanv2_Artist VALUES ('".$artist."',null,null,null,null,null,null,null);";
             mysqli_query($co,$queryArtist);
-            $queryArtistCollab = "INSERT INTO Collaboration VALUES ('".$artist."',null,'".$imageId."');";
+            $queryArtistCollab = "INSERT INTO mbanv2_Collaboration VALUES ('".$artist."',null,'".$imageId."');";
             mysqli_query($co,$queryArtistCollab);
             
             //insertion in hookingArtwork table
@@ -114,7 +114,7 @@
             
             echo $hookingId."+".$wallId."+".$HaPosX."+".$HaPosY."+".$HaPosZ."+".$hookingDate."+".$unhookingDate;
             
-            $queryHookingArtwork = "INSERT INTO HookingArtwork VALUES (".$hookingId.",'".$imageId."','".$wallId."','".$hookingDate."',".$HaPosX.",".$HaPosY.",".$HaPosZ.",".$unhookingDate.");";
+            $queryHookingArtwork = "INSERT INTO mbanv2_HookingArtwork VALUES (".$hookingId.",'".$imageId."','".$wallId."','".$hookingDate."',".$HaPosX.",".$HaPosY.",".$HaPosZ.",".$unhookingDate.");";
             mysqli_query($co,$queryHookingArtwork);
             break;
             
@@ -135,7 +135,7 @@
             
             echo $hookingId."+".$wallId."+".$posX."+".$posY."+".$posZ."+".$hookingDate."+".$unhookingDate;
             
-            $queryHookingArtwork = "INSERT INTO HookingArtwork VALUES (".$hookingId.",'".$imageId."','".$wallId."','".$hookingDate."',".$posX.",".$posY.",".$posZ.",".$unhookingDate.");";
+            $queryHookingArtwork = "INSERT INTO mbanv2_HookingArtwork VALUES (".$hookingId.",'".$imageId."','".$wallId."','".$hookingDate."',".$posX.",".$posY.",".$posZ.",".$unhookingDate.");";
             mysqli_query($co,$queryHookingArtwork);
             break;
             
@@ -148,7 +148,7 @@
             
             //echo $roomId."-".$wallId."-".$posY."-".$posX;
             
-            $queryWall = "INSERT INTO Wall VALUES ('".$wallId."','".$roomId."',".$posX.",".$posY.",".$posZ.");";
+            $queryWall = "INSERT INTO mbanv2_Wall VALUES ('".$wallId."','".$roomId."',".$posX.",".$posY.",".$posZ.");";
             mysqli_query($co,$queryWall);
             break;
             
@@ -158,15 +158,15 @@
             $userId = $_POST["idUser"];
             $like = $_POST["like"];
             
-            $query = 'SELECT * FROM Appreciation WHERE Appreciation.idVisitor = '.$userId.' AND Appreciation.idArtwork = "'.$imageId.'";';
+            $query = 'SELECT * FROM mbanv2_Appreciation WHERE mbanv2_Appreciation.idVisitor = '.$userId.' AND mbanv2_Appreciation.idArtwork = "'.$imageId.'";';
 
 
             $resultQuery = mysqli_query($co,$query);
             if(mysqli_num_rows($resultQuery)>0){
-                $query = 'UPDATE Appreciation SET Appreciation.appreciationLike = '.$like.',appreciationCommentDate = DATE(NOW()) WHERE Appreciation.idVisitor = '.$userId.' AND Appreciation.idArtwork = "'.$imageId.'";';
+                $query = 'UPDATE mbanv2_Appreciation SET mbanv2_Appreciation.appreciationLike = '.$like.',appreciationCommentDate = DATE(NOW()) WHERE mbanv2_Appreciation.idVisitor = '.$userId.' AND mbanv2_Appreciation.idArtwork = "'.$imageId.'";';
             }
             else{
-                $query = 'INSERT INTO Appreciation(idVisitor,idArtwork,appreciationLike,appreciationCommentDate) VALUES('.$userId.',"'.$imageId.'",'.$like.',DATE(NOW()));';
+                $query = 'INSERT INTO mbanv2_Appreciation(idVisitor,idArtwork,appreciationLike,appreciationCommentDate) VALUES('.$userId.',"'.$imageId.'",'.$like.',DATE(NOW()));';
             }
 
             mysqli_query($co,$query);
@@ -180,21 +180,21 @@
             
             $commentary = addslashes($commentary);
 
-            $query = 'SELECT * FROM Appreciation WHERE Appreciation.idVisitor = '.$userId.' AND Appreciation.idArtwork = "'.$imageId.'";';
+            $query = 'SELECT * FROM mbanv2_Appreciation WHERE mbanv2_Appreciation.idVisitor = '.$userId.' AND mbanv2_Appreciation.idArtwork = "'.$imageId.'";';
             
             $resultQuery = mysqli_query($co,$query);
             if(mysqli_num_rows($resultQuery)>0){
-                $query = 'UPDATE Appreciation SET Appreciation.appreciationCommentText = "'.$commentary.'",appreciationCommentDate = DATE(NOW()) WHERE Appreciation.idVisitor = '.$userId.' AND Appreciation.idArtwork = "'.$imageId.'";';
+                $query = 'UPDATE mbanv2_Appreciation SET mbanv2_Appreciation.appreciationCommentText = "'.$commentary.'",appreciationCommentDate = DATE(NOW()) WHERE mbanv2_Appreciation.idVisitor = '.$userId.' AND mbanv2_Appreciation.idArtwork = "'.$imageId.'";';
             }
             else{
-                $query = 'INSERT INTO Appreciation(idVisitor,idArtwork,appreciationCommentText,appreciationCommentDate) VALUES('.$userId.',"'.$imageId.'","'.$commentary.'",DATE(NOW()));';
+                $query = 'INSERT INTO mbanv2_Appreciation(idVisitor,idArtwork,appreciationCommentText,appreciationCommentDate) VALUES('.$userId.',"'.$imageId.'","'.$commentary.'",DATE(NOW()));';
             }
 
             mysqli_query($co,$query);
             break;
             
         case 'getUsers':
-            $query = "SELECT idVisitor FROM Visitor;";
+            $query = "SELECT idVisitor FROM mbanv2_Visitor;";
             $resultQuery = mysqli_query($co,$query);
             $return ="";
             if(mysqli_num_rows($resultQuery)> 0)
@@ -205,7 +205,7 @@
             break;
             
         case 'getArtworks':
-            $query = "SELECT idArtwork FROM Artwork;";
+            $query = "SELECT idArtwork FROM mbanv2_Artwork;";
             $resultQuery = mysqli_query($co,$query);
             $return ="";
             if(mysqli_num_rows($resultQuery)> 0)
@@ -220,14 +220,14 @@
             $pseudoOrEmail = $_POST["username"];
             $password = $_POST["password"];
             
-            $queryGetPassword = "SELECT password FROM Visitor WHERE (pseudo='".$pseudoOrEmail."' OR email='".$pseudoOrEmail."');";
+            $queryGetPassword = "SELECT password FROM mbanv2_Visitor WHERE (pseudo='".$pseudoOrEmail."' OR email='".$pseudoOrEmail."');";
             $resultQueryGetPassword = mysqli_query($co,$queryGetPassword);
             $hashed_password="";
             while($row = $resultQueryGetPassword->fetch_assoc()) {
                 $hashed_password = $row["password"];
             }
             if(password_verify($password, $hashed_password)) {
-                $query = "SELECT v.idVisitor, v.pseudo,r.nameRight FROM Visitor v,Rights r WHERE (v.pseudo='".$pseudoOrEmail."' OR v.email='".$pseudoOrEmail."') AND v.password='".$hashed_password."' And r.idRight=v.idRight;";
+                $query = "SELECT v.idVisitor, v.pseudo,r.nameRight FROM mbanv2_Visitor v,mbanv2_Rights r WHERE (v.pseudo='".$pseudoOrEmail."' OR v.email='".$pseudoOrEmail."') AND v.password='".$hashed_password."' And r.idRight=v.idRight;";
                 $resultQuery = mysqli_query($co,$query);
                 if(mysqli_num_rows($resultQuery)==1){
                     while($row = $resultQuery->fetch_assoc()) {
@@ -249,13 +249,13 @@
             $password = $_POST["password"];
             
             echo $pseudo."/".$email."/".$password;
-            $queryVerifyExistence = "SELECT idVisitor FROM Visitor WHERE pseudo='".$pseudo."' OR email='".$email."';";
+            $queryVerifyExistence = "SELECT idVisitor FROM mbanv2_Visitor WHERE pseudo='".$pseudo."' OR email='".$email."';";
             $resultQueryVerifyExistence = mysqli_query($co,$queryVerifyExistence);
             
             
             if(mysqli_num_rows($resultQueryVerifyExistence)==0){
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $query = "INSERT INTO `Visitor` VALUES (NULL,'".$email."','".$pseudo."','".$hashed_password."',DEFAULT,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);";
+                $query = "INSERT INTO `mbanv2_Visitor` VALUES (NULL,'".$email."','".$pseudo."','".$hashed_password."',DEFAULT,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);";
                 $resultQuery = mysqli_query($co,$query);
                 
                 echo mysqli_num_rows($resultQuery);
@@ -354,10 +354,10 @@
             if($heightCamera == "-1")
                 $heightCamera = "null";
 
-            $queryVisitor = "UPDATE Visitor SET birthday=".$birthday." , gender='".$gender."', height=".$height." , heightCamera=".$heightCamera." , mesureType='".$typeHeight."' , walkSpeed=".$visitingSpeed." , nationality=". $nationality." , country=".$country." , city=". $city." , profession=". $profession." , frenchLevel='". $frenchLevel."' , degree='".$degree."' , mbanVisitNumber =".$numberVisits." , mbanVisitRecency = ".$freqVisitsMBAN.", artKnowledge = ". $artKnowledge .", artImplication ='".$artImplication."' , museumVisitTypes = ". $museumTypes .", museumVisitFrequency = ".$freqVisitsGlobal.", troubleView = '". $troubleView ."' WHERE idVisitor = '".$visitor."'; ";
+            $queryVisitor = "UPDATE mbanv2_Visitor SET birthday=".$birthday." , gender='".$gender."', height=".$height." , heightCamera=".$heightCamera." , mesureType='".$typeHeight."' , walkSpeed=".$visitingSpeed." , nationality=". $nationality." , country=".$country." , city=". $city." , profession=". $profession." , frenchLevel='". $frenchLevel."' , degree='".$degree."' , mbanVisitNumber =".$numberVisits." , mbanVisitRecency = ".$freqVisitsMBAN.", artKnowledge = ". $artKnowledge .", artImplication ='".$artImplication."' , museumVisitTypes = ". $museumTypes .", museumVisitFrequency = ".$freqVisitsGlobal.", troubleView = '". $troubleView ."' WHERE idVisitor = '".$visitor."'; ";
             $resultQueryVisitor = mysqli_query($co,$queryVisitor);
 
-            $queryVisit = "UPDATE `Visit` SET `timeStampVisitMax`=$visitDuration,`styleVisit`=".$visitStyle.",`diversityVisitLevel`=".$diversity.",`newDiscoveryVisitLevel`=".$novelty.",`levelCoverageVisit`=".$coverage.",`crowdAnnoyanceVisit`=".$crowdTolerance.",`artworkMissingWithCrowdVisit`=".$degreeOfPerseverance.",`distanceToleranceVisit`=".$distanceTolerance.",`progressionVisitLevel`=".$progressiveness.",`goalsVisit`=".$goalsVisit.",`physicalTirednessVisitBefore`=".$physicalTiredness.",`mentalTirednessVisitBefore`=".$mentalTiredness.",`moodVisit`=".$mood.",`motivationVisit`=".$motivationsVisit.",`controlVisitLevel`=".$userControl.",`frequencyNotificationsTolerateVisit`=".$frequencyNotifications." WHERE `idVisit`='".$idVisit."';";
+            $queryVisit = "UPDATE `mbanv2_Visit` SET `timeStampVisitMax`=$visitDuration,`styleVisit`=".$visitStyle.",`diversityVisitLevel`=".$diversity.",`newDiscoveryVisitLevel`=".$novelty.",`levelCoverageVisit`=".$coverage.",`crowdAnnoyanceVisit`=".$crowdTolerance.",`artworkMissingWithCrowdVisit`=".$degreeOfPerseverance.",`distanceToleranceVisit`=".$distanceTolerance.",`progressionVisitLevel`=".$progressiveness.",`goalsVisit`=".$goalsVisit.",`physicalTirednessVisitBefore`=".$physicalTiredness.",`mentalTirednessVisitBefore`=".$mentalTiredness.",`moodVisit`=".$mood.",`motivationVisit`=".$motivationsVisit.",`controlVisitLevel`=".$userControl.",`frequencyNotificationsTolerateVisit`=".$frequencyNotifications." WHERE `idVisit`='".$idVisit."';";
             
             $resultQueryVisit = mysqli_query($co,$queryVisit);
             
@@ -368,8 +368,8 @@
             $idArtworkB = $_POST["idArtworkB"];
             $metricDistance = $_POST["metricDistance"];
             
-            $queryHookingArtworkA = "SELECT idHookingArtwork FROM HookingArtwork WHERE idArtwork = '".$idArtworkA."';";
-            $queryHookingArtworkB = "SELECT idHookingArtwork FROM HookingArtwork WHERE idArtwork = '".$idArtworkB."';";
+            $queryHookingArtworkA = "SELECT idHookingArtwork FROM mbanv2_HookingArtwork WHERE idArtwork = '".$idArtworkA."';";
+            $queryHookingArtworkB = "SELECT idHookingArtwork FROM mbanv2_HookingArtwork WHERE idArtwork = '".$idArtworkB."';";
             $resultQueryA = mysqli_query($co,$queryHookingArtworkA);
             $resultQueryB = mysqli_query($co,$queryHookingArtworkB);
             $idHookingArtworkA ="";
@@ -379,7 +379,7 @@
                 
                 $idHookingArtworkB = $idHookingArtworkB."".$resultQueryB->fetch_assoc()["idHookingArtwork"];
                 
-                $resultQuery = "INSERT INTO DistanceArtwork VALUES(".$idHookingArtworkA.",".$idHookingArtworkB.",".$metricDistance.",null);";
+                $resultQuery = "INSERT INTO mbanv2_DistanceArtwork VALUES(".$idHookingArtworkA.",".$idHookingArtworkB.",".$metricDistance.",null);";
                 $resultQuery = mysqli_query($co,$resultQuery);
                 echo 1;
             }else
@@ -393,7 +393,7 @@
             $dateVisit = $_POST["dateVisit"];
             $idTest = $_POST["idTest"];
 
-            $queryVerifyExistence = "SELECT idVisit FROM Visit WHERE idVisitor='".$idVisitor."' AND visitDate='".$dateVisit."';";
+            $queryVerifyExistence = "SELECT idVisit FROM mbanv2_Visit WHERE idVisitor='".$idVisitor."' AND visitDate='".$dateVisit."';";
             $resultQueryVerifyExistence = mysqli_query($co,$queryVerifyExistence);
 
             $idVisit = $dateVisit."_".$idVisitor;
@@ -401,7 +401,7 @@
                 $idVisit = $idVisit."_".mysqli_num_rows($resultQueryVerifyExistence);
             }
             
-            $query = "INSERT INTO `Visit` (`idVisit`, `idMuseum`, `idVisitor`,`idTest`, `visitDate`, `timeStampVisitMax`, `timeStampVisitReal`, `styleVisit`, `diversityVisitLevel`, `newDiscoveryVisitLevel`, `levelCoverageVisit`, `crowdAnnoyanceVisit`, `artworkMissingWithCrowdVisit`, `distanceToleranceVisit`, `progressionVisitLevel`, `goalsVisit`, `physicalTirednessVisitBefore`, `mentalTirednessVisitBefore`, `moodVisit`, `motivationVisit`, `controlVisitLevel`, `frequencyNotificationsTolerateVisit`, `lengthPath`) VALUES ('".$idVisit."', '1', '".$idVisitor."','".$idTest."', '".$dateVisit."', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
+            $query = "INSERT INTO `mbanv2_Visit` (`idVisit`, `idMuseum`, `idVisitor`,`idTest`, `visitDate`, `timeStampVisitMax`, `timeStampVisitReal`, `styleVisit`, `diversityVisitLevel`, `newDiscoveryVisitLevel`, `levelCoverageVisit`, `crowdAnnoyanceVisit`, `artworkMissingWithCrowdVisit`, `distanceToleranceVisit`, `progressionVisitLevel`, `goalsVisit`, `physicalTirednessVisitBefore`, `mentalTirednessVisitBefore`, `moodVisit`, `motivationVisit`, `controlVisitLevel`, `frequencyNotificationsTolerateVisit`, `lengthPath`) VALUES ('".$idVisit."', '1', '".$idVisitor."','".$idTest."', '".$dateVisit."', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
             
             echo $idVisit;
             $resultQuery = mysqli_query($co,$query);
@@ -419,13 +419,13 @@
             $algosSelected = $_POST["algosSelected"];
             $typeReco = $_POST["typeReco"];
             //echo $roomId."-".$wallId."-".$posY."-".$posX;
-            $queryVerifyExistenceTest = "SELECT idTest FROM Test WHERE idTest = '".$testName."';";
+            $queryVerifyExistenceTest = "SELECT idTest FROM mbanv2_Test WHERE idTest = '".$testName."';";
             
             $resultQueryVerifying = mysqli_query($co,$queryVerifyExistenceTest);
             if(mysqli_num_rows($resultQueryVerifying)==0){
-                echo "INSERT INTO Test VALUES ('".$testName."','".$idCreator."','".$timeCreation."','".$dateTest."','".$timeTest."','".$algosSelected."','".$typeReco."');";
+                echo "INSERT INTO mbanv2_Test VALUES ('".$testName."','".$idCreator."','".$timeCreation."','".$dateTest."','".$timeTest."','".$algosSelected."','".$typeReco."');";
                 
-                $queryCreateTest = "INSERT INTO Test VALUES ('".$testName."','".$idCreator."','".$timeCreation."','".$dateTest."','".$timeTest."','".$algosSelected."','".$typeReco."');";
+                $queryCreateTest = "INSERT INTO mbanv2_Test VALUES ('".$testName."','".$idCreator."','".$timeCreation."','".$dateTest."','".$timeTest."','".$algosSelected."','".$typeReco."');";
                 mysqli_query($co,$queryCreateTest);
             }else{
                 echo "TEST ALREADY EXISTS";
@@ -433,7 +433,7 @@
             break;
             
         case 'getTests':
-            $query = "SELECT idTest FROM Test;";
+            $query = "SELECT idTest FROM mbanv2_Test;";
             $resultQuery = mysqli_query($co,$query);
             $return ="";
             
@@ -452,7 +452,7 @@
             
             $idTest = $_POST["idTest"];
 
-            $query = "SELECT typeRecoSelected FROM Test WHERE idTest = '".$idTest."';";
+            $query = "SELECT typeRecoSelected FROM mbanv2_Test WHERE idTest = '".$idTest."';";
             
 //            echo "SELECT typeRecoSelected FROM Test WHERE idTest = '".$idTest."';";
             $resultQuery = mysqli_query($co,$query);
@@ -484,7 +484,7 @@
             if($idTest != "NULL")
                 $idTest = "'".$idTest."'";
             
-            $query = "INSERT INTO `Interaction` (`idInteraction`, `idVisitor`, `idVisit`,`idTest`, `typeInteraction`, `nameInteraction`, `timestamp`) VALUES (NULL,".$idVisitor.", ".$idVisit.",".$idTest.", '".$actionType."', '".$actionValue."', '".$actionTimestamp."');";
+            $query = "INSERT INTO `mbanv2_Interaction` (`idInteraction`, `idVisitor`, `idVisit`,`idTest`, `typeInteraction`, `nameInteraction`, `timestamp`) VALUES (NULL,".$idVisitor.", ".$idVisit.",".$idTest.", '".$actionType."', '".$actionValue."', '".$actionTimestamp."');";
             mysqli_query($co,$query);
             break;
             
@@ -493,7 +493,7 @@
             
             $idVisitor = $_POST["idVisitor"];
 
-            $queryVisitor = "SELECT birthday,gender,height,heightCamera,mesureType,walkSpeed,nationality,country,city,profession,frenchLevel,degree,mbanVisitNumber,mbanVisitRecency,artKnowledge,artImplication,museumVisitTypes,museumVisitFrequency,troubleView FROM Visitor WHERE idVisitor = '".$idVisitor."'; ";
+            $queryVisitor = "SELECT birthday,gender,height,heightCamera,mesureType,walkSpeed,nationality,country,city,profession,frenchLevel,degree,mbanVisitNumber,mbanVisitRecency,artKnowledge,artImplication,museumVisitTypes,museumVisitFrequency,troubleView FROM mbanv2_Visitor WHERE idVisitor = '".$idVisitor."'; ";
             
             $resultQueryVisitor = mysqli_query($co,$queryVisitor);
             
@@ -511,7 +511,7 @@
             break;
 
         case 'getRooms':
-            $stmt = $co->prepare('SELECT r.id as "Room", rn.neighbor AS "Neighbor", r.floor AS "Floor" FROM room r JOIN room_neighbor rn ON r.id = rn.room ORDER BY r.id');
+            $stmt = $co->prepare('SELECT r.id as "Room", rn.neighbor AS "Neighbor", r.floor AS "Floor" FROM mbanv2_room r JOIN mbanv2_room_neighbor rn ON r.id = rn.room ORDER BY r.id');
 
             $stmt->execute();
             $result = $stmt->get_result();
@@ -527,7 +527,7 @@
         break;
 
         case 'getArtworksRoom':
-            $stmt = $co->prepare('SELECT artwork.idArtwork, hookingartwork.room_id FROM artwork JOIN hookingartwork ON artwork.idArtwork = hookingartwork.idArtwork WHERE room_id IS NOT NULL AND artwork.availability != 0');
+            $stmt = $co->prepare('SELECT mbanv2_artwork.idArtwork, mbanv2_hookingartwork.room_id FROM mbanv2_artwork JOIN mbanv2_hookingartwork ON mbanv2_artwork.idArtwork = mbanv2_hookingartwork.idArtwork WHERE room_id IS NOT NULL AND mbanv2_artwork.availability != 0');
 
             $stmt->execute();
             $result = $stmt->get_result();
@@ -545,7 +545,7 @@
     
     /*$test = $_POST["test"];
      
-     $testcheck = "Select test from test1 where test='".$test."';";
+     $testcheck = "Select test from mbanv2_test1 where test='".$test."';";
      
      $check = mysqli_query($co,$testcheck) or die("2: test check query failed");
      
@@ -554,7 +554,7 @@
      exit();
      }
      
-     $inserttest = "INSERT INTO test1 (test) VALUES ('".$test."');";
+     $inserttest = "INSERT INTO mbanv2_test1 (test) VALUES ('".$test."');";
      mysqli_query($co,$inserttest) or die("4: test insert query failed");*/
     
     ?>
