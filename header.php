@@ -47,8 +47,8 @@ if (!isset($_SESSION)){
                    
                     <?php 
                     if($_SESSION['isAdmin']==true) { ?>
-							<li <?php if($page=="contact") echo "class='active'" ?>><a href="AddVisitor.php">Ajout Visiteur</a></li>
-							<li <?php if($page=="contact") echo "class='active'" ?>><a href="showvisiteur.php">Voir les Visiteurs</a></li>
+							<li <?php if($page=="AddVisitor") echo "class='active'" ?>><a href="AddVisitor.php">Ajout Visiteur</a></li>
+							<li <?php if($page=="ShowVisitor") echo "class='active'" ?>><a href="showvisiteur.php">Voir les Visiteurs</a></li>
                     <?php } ?>
                                         
 					<li <?php if($page=="contact") echo "class='active'" ?>><a href="contact.php">Contact</a></li>
