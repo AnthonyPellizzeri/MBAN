@@ -254,7 +254,7 @@
 
             if(mysqli_num_rows($resultQueryVerifyExistence)==0){
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $query = "INSERT INTO mbanv2_visitor(`idVisitor`, `email`, `pseudo`, `password`, `birthday`, `gender`, `heightCamera`, `height`, `mesureType`, `walkSpeed`, `nationality`, `country`, `city`, `profession`, `frenchLevel`, `degree`, `mbanVisitNumber`, `mbanVisitRecency`, `artKnowledge`, `artImplication`, `museumVisitTypes`, `museumVisitFrequency`, `themeInterest`, `styleArtworkInterest`, `periodInterest`, `troubleView`, `idRight`) VALUES (NULL,'".$email."','".$pseudo."','".$hashed_password."',DEFAULT,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,2);";
+                $query = "INSERT INTO mbanv2_visitor(`idVisitor`, `email`, `pseudo`, `password`, `birthday`, `gender`, `heightCamera`, `height`, `mesureType`, `walkSpeed`, `nationality`, `country`, `city`, `profession`, `frenchLevel`, `degree`, `mbanVisitNumber`, `mbanVisitRecency`, `artKnowledge`, `artImplication`, `museumVisitTypes`, `museumVisitFrequency`, `themeInterest`, `styleArtworkInterest`, `periodInterest`, `troubleView`, `idRight`, `isActive`) VALUES (NULL,'".$email."','".$pseudo."','".$hashed_password."',DEFAULT,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,2,1);";
                 $resultQuery = mysqli_query($co,$query);
                 
                 echo mysqli_num_rows($resultQuery);
@@ -263,13 +263,13 @@
                 echo 0;
             break;
         case 'ShowAllVisitor':
-        	$queryShowAllVisitor = "SELECT `idVisitor`, `email`, `pseudo`, `password`, `birthday`, `gender`, `heightCamera`, `height`, `mesureType`, `walkSpeed`, `nationality`, `country`, `city`, `profession`, `frenchLevel`, `degree`, `mbanVisitNumber`, `mbanVisitRecency`, `artKnowledge`, `artImplication`, `museumVisitTypes`, `museumVisitFrequency`, `themeInterest`, `styleArtworkInterest`, `periodInterest`, `troubleView`, `idRight` FROM `mbanv2_visitor`";
+        	$queryShowAllVisitor = "SELECT `idVisitor`, `email`, `pseudo`, `password`, `birthday`, `gender`, `heightCamera`, `height`, `mesureType`, `walkSpeed`, `nationality`, `country`, `city`, `profession`, `frenchLevel`, `degree`, `mbanVisitNumber`, `mbanVisitRecency`, `artKnowledge`, `artImplication`, `museumVisitTypes`, `museumVisitFrequency`, `themeInterest`, `styleArtworkInterest`, `periodInterest`, `troubleView`, `idRight`, `isActive` FROM `mbanv2_visitor`";
             $resultQueryShowAllVisitor = mysqli_query($co,$queryShowAllVisitor);
             if(mysqli_num_rows($resultQueryShowAllVisitor)>0){
             	$i=0;
             	$array=array();
                 while($row = $resultQueryShowAllVisitor->fetch_assoc()) {
-                       $array[$i] = $row["email"]."|".$row["pseudo"]."|".$row["idRight"];
+                       $array[$i] = $row["email"]."|".$row["pseudo"]."|".$row["isActive"];
                         $i=$i+1;
                 }
                 echo json_encode($array);

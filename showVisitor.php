@@ -69,15 +69,36 @@
                 cell2.appendChild(cellText2);
                 row.appendChild(cell2);
                 tblBody.appendChild(row);
+                var row3 = document.createElement("tr");
+                var cell3 = document.createElement("th");
+                var cellText3 = document.createTextNode("Action");
+                cell3.appendChild(cellText3);
+                row.appendChild(cell3);
+                tblBody.appendChild(row);
               }
               
               for (var i = 0; i < tab.length; i++) {
                 var row = document.createElement("tr");
                 var ligne=tab[i].split("|");
-                for (var j = 0; j < 3; j++) {
+                for (var j = 0; j < 4; j++) {
                   var cell = document.createElement("td");
-                  var cellText = document.createTextNode(ligne[j]);
-                  cell.appendChild(cellText);
+                    if(j==3){
+                        if(ligne[j-1]==1){
+                            var input = document.createElement("input");
+                            var btn = document.createElement("BUTTON");   // Create a <button> element
+                            btn.innerHTML = "Rendre inactif"; 
+                        }else{
+                            var input = document.createElement("input");
+                            var btn = document.createElement("BUTTON");   // Create a <button> element
+                            btn.innerHTML = "Rendre actif";  
+                        }
+                        cell.appendChild(btn)
+                    }
+                    else{
+                        var cellText = document.createTextNode(ligne[j]);
+                        cell.appendChild(cellText)
+                    }
+                  ;
                   row.appendChild(cell);
                 }
                 tblBody.appendChild(row);
