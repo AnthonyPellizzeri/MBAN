@@ -9,8 +9,8 @@
 	<div class="container">
 
 		<ol class="breadcrumb">
-			<li><a href="index.html">Home</a></li>
-			<li class="active">About</li>
+			<li><a href="index.php">Home</a></li>
+			<li class="active">Nous</li>
 		</ol>
 
 		<div class="row">
@@ -21,7 +21,7 @@
 					<h1 class="page-title">Qui sommes-nous?</h1>
 				</header>
 				<h3>MBANv2</h3>
-				<p><img src="assets/images/mac.jpg" alt="" class="img-rounded pull-right" width="300" > 
+				<p><img src="Datas/logo.PNG" alt="" class="img-rounded pull-right" width="300" > 
                     La plateforme MBANv2 a été développée par l’équipe BIRD du laboratoire LORIA (Université de Lorraine), en
 collaboration avec le musée des Beaux-Arts de Nancy et la métropole du Grand Nancy. Les chercheurs de
 cette équipe travaillent dans le domaine de l’héritage culturel et développent des algorithmes de
@@ -58,13 +58,11 @@ Mines Nancy (Université de Lorraine) : https://mines-nancy.univ-lorraine.fr/
 			<aside class="col-sm-4 sidebar sidebar-right">
 
 				<div class="widget">
-					<h4>Vacancies</h4>
+					<h4>Informations</h4>
 					<ul class="list-unstyled list-spaces">
-						<li><a href="">Lorem ipsum dolor</a><br><span class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, laborum.</span></li>
-						<li><a href="">Totam, libero, quis</a><br><span class="small text-muted">Suscipit veniam debitis sed ipsam quia magnam eveniet perferendis nisi.</span></li>
-						<li><a href="">Enim, sequi dignissimos</a><br><span class="small text-muted">Reprehenderit illum quod unde quo vero ab inventore alias veritatis.</span></li>
-						<li><a href="">Suscipit, consequatur, aut</a><br><span class="small text-muted">Sed, mollitia earum debitis est itaque esse reiciendis amet cupiditate.</span></li>
-						<li><a href="">Nam, illo, veritatis</a><br><span class="small text-muted">Delectus, sapiente illo provident quo aliquam nihil beatae dignissimos itaque.</span></li>
+						<li><a href="">Projet M2 MIAGE - ACSI</a><br><span class="small text-muted">Passage de l'application Unity vers un site web</span></li>
+						<li><a href="">Projet M2 MIAGE - SID</a><br><span class="small text-muted">Création d'un algorithme de recommandations</span></li>
+						<li><a href="">Projet M1 Sciences Cognitives</a><br><span class="small text-muted">Faire un audit ergonomique de la solution et réaliser un travail prospectif sur des fonctionnalités, des modes d’interactions et des écrans à implémenter</span></li>
 					</ul>
 				</div>
 

@@ -9,7 +9,7 @@
 	<div class="container">
 		
 		<ol class="breadcrumb">
-			<li><a href="index.html">Home</a></li>
+			<li><a href="index.php">Home</a></li>
 			<li class="active">aide</li>
 		</ol>
 
@@ -46,8 +46,9 @@
 				</header>
 				<p>Il est necessaire de se connecter avec un compte Administrateur afin d'accèder à l'application</p>
 				<p>Cet administrateur pourra proposer à un compte visiteur de se balader et visiter le musé</p>
+                <br>
 				<h4>Plan en 3D</h4>
-                <p><img src="Datas/map.png" alt="" style="height: 400px"></p>
+                <p><img src="Datas/map.png" alt="" style="height: 350px"></p>
 			</article>
 			<!-- /Article -->
 

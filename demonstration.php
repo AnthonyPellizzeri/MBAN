@@ -16,8 +16,8 @@
 			<div class="webgl-content" style="position: relative;margin-top:430px">
               <div id="gameContainer" style="width: 960px; height: 600px"></div>
               <div class="footer">
-                <div class="webgl-logo"></div>
-                <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+                <!--<p><img src="Datas/logo.PNG" style="float: left; height:50px"></p> -->
+                <div class="fullscreen" style="float: right; margin-right:200px" onclick="gameInstance.SetFullscreen(1)"></div>
                 <div class="title">MBANv2</div>
               </div>
             </div>
