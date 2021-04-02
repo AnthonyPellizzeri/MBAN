@@ -1,5 +1,4 @@
 <?php $page="index"; ?>
-<?php include 'variable.php';?>
 <?php include 'header.php';?>
 
 <body class="home">

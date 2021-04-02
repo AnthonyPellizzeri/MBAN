@@ -1,7 +1,23 @@
+<?php include 'variable.php';?>
+
 <?php 
 if (!isset($_SESSION)){
   session_start();
 }?>
+
+
+<?php 
+                    if($_SESSION['isAdmin']==true) { ?>
+                        true
+                    <?php
+
+                    }  else{
+                        ?>
+                        nothing
+                    <?php
+                    }                 
+                      ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +68,7 @@ if (!isset($_SESSION)){
 					<li <?php if($page=="contact") echo "class='active'" ?>><a href="contact.php">Contact</a></li>
                     <?php 
                     if(isset($_SESSION['isConnect'])) { ?>
-                        <li><a class="btn" onclick="return sessionDown();" href="javascript:window.location.href=window.location.href">déconnexion</a></li>
+                        <li><a class="btn" onclick="sessionDown();">déconnexion</a></li>
                     <?php
 
                     }  else{
@@ -89,6 +105,5 @@ if (!isset($_SESSION)){
                       alert("notOk");
                   }   
                 }); 
-        return true;
     }
     </script>
