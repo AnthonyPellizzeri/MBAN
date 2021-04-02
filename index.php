@@ -16,10 +16,9 @@
 	<!-- Intro -->
 	<div class="container text-center">
 		<br> <br>
-		<h2 class="thin">The best place to tell people why they are here</h2>
+		<h2 class="thin">Ce projet a été fait par l’équipe BIRD du laboratoire LORIA (Université de Lorraine)</h2>
 		<p class="text-muted">
-			The difference between involvement and commitment is like an eggs-and-ham breakfast:<br> 
-			the chicken was involved; the pig was committed.
+			 En collaboration avec le musée des Beaux-Arts de Nancy et la métropole du Grand Nancy
 		</p>
 	</div>
 	<!-- /Intro-->
@@ -27,7 +26,6 @@
 	<!-- container -->
 	<div class="container">
 
-		...
     </div>	
     <!-- /container -->
 	
