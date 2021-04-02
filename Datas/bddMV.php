@@ -248,20 +248,21 @@
             $email = $_POST["email"];
             $password = $_POST["password"];
             
-            echo $pseudo."/".$email."/".$password;
             $queryVerifyExistence = "SELECT idVisitor FROM mbanv2_Visitor WHERE pseudo='".$pseudo."' OR email='".$email."';";
             $resultQueryVerifyExistence = mysqli_query($co,$queryVerifyExistence);
             
-            
+            echo $pseudo."/".$email."/".$password;
+
             if(mysqli_num_rows($resultQueryVerifyExistence)==0){
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $query = "INSERT INTO `mbanv2_Visitor` VALUES (NULL,'".$email."','".$pseudo."','".$hashed_password."',DEFAULT,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);";
+                $query = "INSERT INTO mbanv2_visitor(`idVisitor`, `email`, `pseudo`, `password`, `birthday`, `gender`, `heightCamera`, `height`, `mesureType`, `walkSpeed`, `nationality`, `country`, `city`, `profession`, `frenchLevel`, `degree`, `mbanVisitNumber`, `mbanVisitRecency`, `artKnowledge`, `artImplication`, `museumVisitTypes`, `museumVisitFrequency`, `themeInterest`, `styleArtworkInterest`, `periodInterest`, `troubleView`, `idRight`) VALUES (NULL,'".$email."','".$pseudo."','".$hashed_password."',DEFAULT,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,2);";
                 $resultQuery = mysqli_query($co,$query);
                 
                 echo mysqli_num_rows($resultQuery);
             }
             else
                 echo 0;
+
             
             break;
             

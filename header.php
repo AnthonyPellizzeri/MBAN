@@ -5,19 +5,6 @@ if (!isset($_SESSION)){
   session_start();
 }?>
 
-
-<?php 
-                    if($_SESSION['isAdmin']==true) { ?>
-                        true
-                    <?php
-
-                    }  else{
-                        ?>
-                        nothing
-                    <?php
-                    }                 
-                      ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,15 +43,10 @@ if (!isset($_SESSION)){
 					<li <?php if($page=="demonstration") echo "class='active'" ?>><a href="demonstration.php">Démonstration</a></li>
 					<li <?php if($page=="about") echo "class='active'" ?>><a href="about.php">A propos de nous</a></li>
 					<li <?php if($page=="sidebar-left") echo "class='active'" ?>><a href="sidebar-left.php">Aide</a></li>
-                    <!--
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="sidebar-left.html">Left Sidebar</a></li>
-							<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
-						</ul>
-					</li>
-                    -->
+                    <?php 
+                    if($_SESSION['isAdmin']==true) { ?>
+                        <li <?php if($page=="admin") echo "class='active'" ?>><a href="admin.php">Admin</a></li>
+                    <?php } ?>
 					<li <?php if($page=="contact") echo "class='active'" ?>><a href="contact.php">Contact</a></li>
                     <?php 
                     if(isset($_SESSION['isConnect'])) { ?>
