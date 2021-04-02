@@ -42,7 +42,7 @@ if (!isset($_SESSION)){
 					<li <?php if($page=="index") echo "class='active'" ?>><a href="index.php">Accueil</a></li>
 					<li <?php if($page=="demonstration") echo "class='active'" ?>><a href="demonstration.php">Démonstration</a></li>
 					<li <?php if($page=="about") echo "class='active'" ?>><a href="about.php">A propos de nous</a></li>
-					<li <?php if($page=="sidebar-left") echo "class='active'" ?>><a href="sidebar-left.php">Aide</a></li>
+					<li <?php if($page=="help") echo "class='active'" ?>><a href="help.php">Aide</a></li>
                     <?php 
                     if($_SESSION['isAdmin']==true) { ?>
                         <li <?php if($page=="admin") echo "class='active'" ?>><a href="admin.php">Admin</a></li>

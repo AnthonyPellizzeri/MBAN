@@ -1,4 +1,4 @@
-<?php $page="signup"; ?>
+<?php $page="admin"; ?>
 <?php include 'variable.php';?>
 <?php include 'header.php';?>
 
