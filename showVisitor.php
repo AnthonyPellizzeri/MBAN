@@ -1,4 +1,4 @@
-<?php $page="admin"; ?>
+<?php $page="ShowVisitor"; ?>
 <?php include 'variable.php';?>
 <?php include 'header.php';?>
 

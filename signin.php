@@ -57,8 +57,6 @@
 		</div>
 	</div>	<!-- /container -->
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-
 	<script type="text/javascript"> 
         
     function signin(){

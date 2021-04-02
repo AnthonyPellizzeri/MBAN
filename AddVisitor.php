@@ -1,4 +1,4 @@
-<?php $page="admin"; ?>
+<?php $page="AddVisitor"; ?>
 <?php include 'variable.php';?>
 <?php include 'header.php';?>
 
@@ -94,7 +94,7 @@
           data: {action: "signUp", username:name, email:mail, password:mdp },
           datatype: 'json',
           success: function(data){
-               window.location.href="signin.php"; 
+               window.location.href="AddVisitor.php"; 
           },
           error:function(){
               alert("notOk");

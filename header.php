@@ -1,4 +1,5 @@
 <?php include 'variable.php';?>
+<script src="jquery.js"></script>
 
 <?php 
 if (!isset($_SESSION)){
@@ -35,24 +36,21 @@ if (!isset($_SESSION)){
 			<div class="navbar-header">
 				<!-- Button for smallest screens -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand" href="index.html"><img style="height: 60px;" src="assets/images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="index.html"><img style="height: 60px;" src="Datas/logo.PNG" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav pull-right">
+				<ul class="nav navbar-nav pull-right" style="margin-right:10%">
 					<li <?php if($page=="index") echo "class='active'" ?>><a href="index.php">Accueil</a></li>
 					<li <?php if($page=="demonstration") echo "class='active'" ?>><a href="demonstration.php">Démonstration</a></li>
 					<li <?php if($page=="about") echo "class='active'" ?>><a href="about.php">A propos de nous</a></li>
 					<li <?php if($page=="help") echo "class='active'" ?>><a href="help.php">Aide</a></li>
+                   
                     <?php 
                     if($_SESSION['isAdmin']==true) { ?>
-                    <li <?php if($page=="admin") echo "class='active'" ?> class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="AddVisitor.php">Ajout Visiteur</a></li>
-							<li><a href="ShowVisitor.php">Voir les Visiteurs</a></li>
-						</ul>
-					</li>
+							<li <?php if($page=="contact") echo "class='active'" ?>><a href="AddVisitor.php">Ajout Visiteur</a></li>
+							<li <?php if($page=="contact") echo "class='active'" ?>><a href="ShowVisitor.php">Voir les Visiteurs</a></li>
                     <?php } ?>
+                                        
 					<li <?php if($page=="contact") echo "class='active'" ?>><a href="contact.php">Contact</a></li>
                     <?php 
                     if(isset($_SESSION['isConnect'])) { ?>

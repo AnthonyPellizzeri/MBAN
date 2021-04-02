@@ -20,7 +20,7 @@
 					</div>
 
 					<div class="col-md-3 widget">
-						<h3 class="widget-title">Follow me</h3>
+						<h3 class="widget-title">Nous suivre</h3>
 						<div class="widget-body">
 							<p class="follow-me-icons clearfix">
 								<a href=""><i class="fa fa-twitter fa-2"></i></a>
@@ -32,7 +32,7 @@
 					</div>
 
 					<div class="col-md-6 widget">
-						<h3 class="widget-title">Text widget</h3>
+						<h3 class="widget-title">Informations</h3>
 						<div class="widget-body">
 							<p>La plateforme MBANv2 a été développée par l’équipe BIRD du laboratoire LORIA (Université de Lorraine), en collaboration avec le musée des Beaux-Arts de Nancy et la métropole du Grand Nancy. Les chercheurs de cette équipe travaillent dans le domaine de l’héritage culturel et développent des algorithmes de recommandation de parcours pour des visites de musée. Afin de répondre au mieux aux attentes des visiteurs, ces algorithmes d'Intelligence Artificielle nécessitent d’être entraînés sur de grandes quantités de données.</p>
 						</div>

@@ -1,4 +1,4 @@
 <?php
-  $bddPath="Datas/bddMV.php";
+  $bddPath="bddMV.php";
   $requestPath="RequestFile/request.php";
 ?>
