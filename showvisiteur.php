@@ -143,9 +143,5 @@
           }   
         }); 
 };
-    function beActif(id){
-        alert();
-        
-    }
 </script>
 <?php include 'footer.php';?>
