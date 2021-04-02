@@ -45,7 +45,13 @@ if (!isset($_SESSION)){
 					<li <?php if($page=="help") echo "class='active'" ?>><a href="help.php">Aide</a></li>
                     <?php 
                     if($_SESSION['isAdmin']==true) { ?>
-                        <li <?php if($page=="admin") echo "class='active'" ?>><a href="admin.php">Admin</a></li>
+                    <li <?php if($page=="admin") echo "class='active'" ?> class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="AddVisitor.php">Ajout Visiteur</a></li>
+							<li><a href="ShowVisitor.php">Voir les Visiteurs</a></li>
+						</ul>
+					</li>
                     <?php } ?>
 					<li <?php if($page=="contact") echo "class='active'" ?>><a href="contact.php">Contact</a></li>
                     <?php 

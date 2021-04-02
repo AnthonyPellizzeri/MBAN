@@ -241,7 +241,6 @@
             else
                 echo "";
             break;
-            
         case 'signUp':
             
             $pseudo = $_POST["username"];
@@ -262,10 +261,23 @@
             }
             else
                 echo 0;
-
-            
             break;
-            
+        case 'ShowAllVisitor':
+        	$queryShowAllVisitor = "SELECT `idVisitor`, `email`, `pseudo`, `password`, `birthday`, `gender`, `heightCamera`, `height`, `mesureType`, `walkSpeed`, `nationality`, `country`, `city`, `profession`, `frenchLevel`, `degree`, `mbanVisitNumber`, `mbanVisitRecency`, `artKnowledge`, `artImplication`, `museumVisitTypes`, `museumVisitFrequency`, `themeInterest`, `styleArtworkInterest`, `periodInterest`, `troubleView`, `idRight` FROM `mbanv2_visitor`";
+            $resultQueryShowAllVisitor = mysqli_query($co,$queryShowAllVisitor);
+            if(mysqli_num_rows($resultQueryShowAllVisitor)>0){
+            	$i=0;
+            	$array=array();
+                while($row = $resultQueryShowAllVisitor->fetch_assoc()) {
+                       $array[$i] = $row["email"]."|".$row["pseudo"]."|".$row["idRight"];
+                        $i=$i+1;
+                }
+                echo json_encode($array);
+                //echo $return;
+            }
+            else
+                echo "ici";
+            break;
         case 'profileSettings':
             
             //DEMOGRAPHIC DATA

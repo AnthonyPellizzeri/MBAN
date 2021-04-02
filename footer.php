@@ -34,8 +34,7 @@
 					<div class="col-md-6 widget">
 						<h3 class="widget-title">Text widget</h3>
 						<div class="widget-body">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
-							<p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
+							<p>La plateforme MBANv2 a été développée par l’équipe BIRD du laboratoire LORIA (Université de Lorraine), en collaboration avec le musée des Beaux-Arts de Nancy et la métropole du Grand Nancy. Les chercheurs de cette équipe travaillent dans le domaine de l’héritage culturel et développent des algorithmes de recommandation de parcours pour des visites de musée. Afin de répondre au mieux aux attentes des visiteurs, ces algorithmes d'Intelligence Artificielle nécessitent d’être entraînés sur de grandes quantités de données.</p>
 						</div>
 					</div>
 
@@ -50,11 +49,13 @@
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
+                                <!--
 								<a href="#">Home</a> | 
 								<a href="about.html">About</a> |
 								<a href="sidebar-right.html">Sidebar</a> |
 								<a href="contact.html">Contact</a> |
 								<b><a href="signup.html">Sign up</a></b>
+                                -->
 							</p>
 						</div>
 					</div>
@@ -81,5 +82,3 @@
 	<script src="assets/js/headroom.min.js"></script>
 	<script src="assets/js/jQuery.headroom.min.js"></script>
 	<script src="assets/js/template.js"></script>
-</body>
-</html>
