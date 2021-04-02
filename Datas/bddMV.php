@@ -269,7 +269,7 @@
             	$i=0;
             	$array=array();
                 while($row = $resultQueryShowAllVisitor->fetch_assoc()) {
-                       $array[$i] = $row["email"]."|".$row["pseudo"]."|".$row["isActive"];
+                       $array[$i] = $row["email"]."|".$row["pseudo"]."|".$row["isActive"]."|".$row["idVisitor"];
                         $i=$i+1;
                 }
                 echo json_encode($array);
@@ -277,6 +277,18 @@
             }
             else
                 echo "ici";
+            break;
+        case 'beActif':
+        	$id = $_POST["id"];
+        	$queryShowAllVisitor = "UPDATE `mbanv2_visitor` SET isActive=0 WHERE idVisitor='".$id."';";
+            $resultQueryShowAllVisitor = mysqli_query($co,$queryShowAllVisitor);
+            echo $resultQueryShowAllVisitor;
+            break;
+        case 'beInactif':
+        	$id = $_POST["id"];
+        	$queryShowAllVisitor = "UPDATE `mbanv2_visitor` SET isActive=1 WHERE idVisitor='".$id."';";
+            $resultQueryShowAllVisitor = mysqli_query($co,$queryShowAllVisitor);
+            echo $resultQueryShowAllVisitor;
             break;
         case 'profileSettings':
             

@@ -18,7 +18,7 @@
 
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
-			<li class="active">Inscription</li>
+			<li class="active">Visiteurs</li>
 		</ol>
 
 		<div class="row">
@@ -84,13 +84,45 @@
                   var cell = document.createElement("td");
                     if(j==3){
                         if(ligne[j-1]==1){
-                            var input = document.createElement("input");
                             var btn = document.createElement("BUTTON");   // Create a <button> element
                             btn.innerHTML = "Rendre inactif"; 
+                            btn.id = ligne[j];
+                            btn.onclick = function(id) {
+                                //console.log(this.id);
+                                $.ajax({
+                                  url: "<?php echo $bddPath; ?>",
+                                  type: "post",
+                                  data: {action: "beActif", id:this.id },
+                                  datatype: 'json',
+                                  success: function(data){
+                                      //alert(data);
+                                       window.location.href="showVisitor.php"; 
+                                  },
+                                  error:function(){
+                                      alert("notOk");
+                                  }   
+                                }); 
+                            }; 
                         }else{
-                            var input = document.createElement("input");
                             var btn = document.createElement("BUTTON");   // Create a <button> element
-                            btn.innerHTML = "Rendre actif";  
+                            btn.innerHTML = "Rendre actif"; 
+                            btn.id = ligne[j];
+                            btn.onclick = function(id) {
+                                //console.log(this.id);
+                                $.ajax({
+                                  url: "<?php echo $bddPath; ?>",
+                                  type: "post",
+                                  data: {action: "beInactif", id:this.id },
+                                  datatype: 'json',
+                                  success: function(data){
+                                      //alert(data);
+                                       window.location.href="showVisitor.php"; 
+                                  },
+                                  error:function(){
+                                      alert("notOk");
+                                  }   
+                                }); 
+                            }; 
                         }
                         cell.appendChild(btn)
                     }
@@ -111,5 +143,9 @@
           }   
         }); 
 };
+    function beActif(id){
+        alert();
+        
+    }
 </script>
 <?php include 'footer.php';?>
