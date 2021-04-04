@@ -41,7 +41,10 @@ if (!isset($_SESSION)){
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right" style="margin-right:10%">
 					<li <?php if($page=="index") echo "class='active'" ?>><a href="index.php">Accueil</a></li>
-					<li <?php if($page=="demonstration") echo "class='active'" ?>><a href="demonstration.php">Démonstration</a></li>
+                     <?php 
+                    if($_SESSION['isConnect']==true) { ?>
+					   <li <?php if($page=="demonstration") echo "class='active'" ?>><a href="demonstration.php">Démonstration</a></li>
+                    <?php } ?>
 					<li <?php if($page=="about") echo "class='active'" ?>><a href="about.php">A propos de nous</a></li>
 					<li <?php if($page=="help") echo "class='active'" ?>><a href="help.php">Aide</a></li>
                    

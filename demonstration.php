@@ -2,6 +2,15 @@
 <?php include 'variable.php';?>
 <?php include 'header.php';?>
 
+
+<?php
+    if($_SESSION['isConnect']<>true){
+        header("Location: signin.php");
+        die();
+    }
+    
+?>
+
 <link rel="stylesheet" href="TemplateData/style.css">
 <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
