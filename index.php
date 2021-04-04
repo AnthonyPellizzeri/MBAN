@@ -7,7 +7,7 @@
 		<div class="container">
 			<div class="row">
 				<h1 class="lead">Découvrez le musée virtuel!</h1>
-				<p><a class="btn btn-action btn-lg" role="button" href="Demonstration.html">Voir la démonstration</a></p>
+				<p><a class="btn btn-action btn-lg" role="button" href="demonstration.php">Voir la démonstration</a></p>
 			</div>
 		</div>
 	</header>
