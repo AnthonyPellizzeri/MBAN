@@ -96,7 +96,7 @@
                                   datatype: 'json',
                                   success: function(data){
                                       //alert(data);
-                                       window.location.href="showVisitor.php"; 
+                                       window.location.href="showvisiteur.php"; 
                                   },
                                   error:function(){
                                       alert("notOk");
@@ -116,7 +116,7 @@
                                   datatype: 'json',
                                   success: function(data){
                                       //alert(data);
-                                       window.location.href="showVisitor.php"; 
+                                       window.location.href="showvisiteur.php"; 
                                   },
                                   error:function(){
                                       alert("notOk");
