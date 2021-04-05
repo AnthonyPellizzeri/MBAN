@@ -42,13 +42,13 @@
 			<!-- Article main content -->
 			<article class="col-md-8 maincontent">
 				<header class="page-header">
-					<h1 class="page-title">Aide concernant l'utilisation de la simulation du musé</h1>
+					<h1 class="page-title">Aide concernant l'utilisation de la simulation du musée</h1>
 				</header>
-				<p>Il est necessaire de se connecter avec un compte Administrateur afin d'accèder à l'application</p>
-				<p>Cet administrateur pourra proposer à un compte visiteur de se balader et visiter le musé</p>
+				<p style="text-align:justify">Il est necessaire de se connecter avec un compte Administrateur afin d'accèder à l'application.</p>
+				<p>Cet administrateur pourra proposer à un compte visiteur de se balader et visiter le musée.</p>
                 <br>
 				<h4>Plan en 3D</h4>
-                <p><img src="Datas/map.png" alt="" style="height: 350px"></p>
+                <p style="text-align:justify"><img src="Datas/map.png" alt="" style="height: 350px"></p>
 			</article>
 			<!-- /Article -->
 

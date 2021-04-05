@@ -301,6 +301,14 @@
             $resultQueryShowAllVisitor = mysqli_query($co,$queryShowAllVisitor);
             echo $resultQueryShowAllVisitor;
             break;
+        case 'changePwd':
+        	$id = $_POST["id"];
+        	$password = $_POST["mdp"];
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        	$queryChangePwd = "UPDATE `mbanv2_visitor` SET password='".$hashed_password."' WHERE idVisitor='".$id."';";
+            $resultQuerychangePwd = mysqli_query($co,$queryChangePwd);
+            echo $resultQuerychangePwd;
+            break;
         case 'beInactif':
         	$id = $_POST["id"];
         	$queryShowAllVisitor = "UPDATE `mbanv2_visitor` SET isActive=1 WHERE idVisitor='".$id."';";

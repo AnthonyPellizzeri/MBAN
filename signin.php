@@ -75,7 +75,7 @@
                   $.ajax({
                   url: "<?php echo $requestPath; ?>",
                   type: "post",
-                  data: {action: "connexion", role:data.split("|")[2] },
+                  data: {action: "connexion", id:data.split("|")[0], name:data.split("|")[1], role:data.split("|")[2] },
                   datatype: 'json',
                   success: function(data){
                         window.location.href="index.php"; 

@@ -14,7 +14,7 @@ if (!isset($_SESSION)){
 	<meta name="description" content="">
 	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 	
-	<title>Contact us - Progressus Bootstrap template</title>
+	<title>MBANv2 Website</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
@@ -39,7 +39,7 @@ if (!isset($_SESSION)){
 				<a class="navbar-brand" href="index.html"><img style="height: 60px;" src="Datas/logo.PNG" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav pull-right" style="margin-right:10%">
+				<ul class="nav navbar-nav pull-right" style="margin-right:-10%">
 					<li <?php if($page=="index") echo "class='active'" ?>><a href="index.php">Accueil</a></li>
                      <?php 
                     if($_SESSION['isConnect']==true) { ?>
@@ -55,11 +55,14 @@ if (!isset($_SESSION)){
                     <?php } ?>
                                         
 					<li <?php if($page=="contact") echo "class='active'" ?>><a href="contact.php">Contact</a></li>
+                     <?php 
+                    if($_SESSION['isConnect']==true) { ?>
+					   <li <?php if($page=="setting") echo "class='active'" ?>><a href="setting.php">Paramètres</a></li>
+                    <?php } ?>
                     <?php 
                     if(isset($_SESSION['isConnect'])) { ?>
-                        <li><a class="btn" onclick="sessionDown();">déconnexion</a></li>
+                        <li><a class="btn" onclick="sessionDown();">déconnexion de <?php echo $_SESSION['name'] ?></a></li>
                     <?php
-
                     }  else{
                         ?>
                         <li <?php if($page=="signin") echo "class='active'" ?>><a class="btn" href="signin.php">Connexion</a></li>
