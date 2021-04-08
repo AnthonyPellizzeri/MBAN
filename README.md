@@ -10,3 +10,11 @@ File → build settings → sous platform choisir webGL → click player Setting
 ## Exécuter
 click bouton “switch platfom” puis “ build and run” pour lancer le projet 
 
+## Importer fichiers dans le front
+inserer les dossiers générés
+
+* Build
+* StreamingAssets
+* TemplateData
+
+(Attention à ne pas mettre le fichier index.html)
