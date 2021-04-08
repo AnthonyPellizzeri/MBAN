@@ -1,32 +1,12 @@
-Progressus - Free business/corporate Bootstrap template
-=============
+# Exécuter Unity dans site web
+## Installer plug in :
+Dans unity →  installs → click sur les 3 points du de l’installation 2018.4.27f1 → add module → webGL → done
 
-Progressus is a free, responsive, nice-looking business template based on Bootstrap HTML/CSS framework. 
+## Ajouter droits sur le projet
+Window → general → services → choisi son nom dans la liste déroulante 
 
+File → build settings → sous platform choisir webGL → click player Settings… → others settings → decocher API et choisir WebGL 2.0 
 
-License
--------
-**Creative Commons Attribution 3.0** - http://creativecommons.org/licenses/by/3.0/
+## Exécuter
+click bouton “switch platfom” puis “ build and run” pour lancer le projet 
 
-
-Features
------------
-
-* Easy to use, fat-free HTML and CSS code.
-* 7 ready-made templates for most common tasks
-* Responsive design
-* High overral quality, the template does worth to be premium.
-
-
-Bug tracker
------------
-
-Found a bug? Please create an issue here on GitHub! 
-https://github.com/pozh/Progressus/issues
-
-
-Credits
--------
-* Design and development: **Sergey Pozhilov** - http://pozhilov.com
-* Photos used in template: **Unsplash** - http://unsplash.com
-* More free templates by Sergey: http://gettemplate.com
